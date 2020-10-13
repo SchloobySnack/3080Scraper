@@ -59,12 +59,12 @@ websiteNames = [
     "evga",
     "store.asus"
 ]
-
+# check if current url is in list of supported sites, if it is return the name of the site.
 def getWebsiteName():
     for name in websiteNames:
         if name in driver.current_url:
             return name
-
+# locate add to cart button and return the element if found
 def findAddToCartButton():
     elementType = buttonType[getWebsiteName()]
     try:
@@ -87,7 +87,7 @@ def findAddToCartButton():
     else:
         print("Found Add To Cart Button")
         return Button
-
+# does the button label contain add to cart?
 def addToCartAvailable(button):
     try:
         if 'add to cart' in button.text.lower():
@@ -96,7 +96,7 @@ def addToCartAvailable(button):
             return False
     except Exception:
         return False
-
+# main program loop
 def main():
     # Check pages for add to cart button
     inStock = False
