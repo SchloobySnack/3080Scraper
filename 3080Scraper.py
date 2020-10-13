@@ -1,15 +1,13 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
+
 # Driver params
-options = Options()
-options.headless = False
-options.add_argument("--window-size=1920,1200")
 DRIVER_PATH = "C:\\EdgeWebDriver\\msedgedriver.exe"
 # Setup driver, use web driver for correct build version of edge installed.
 # https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
 driver = webdriver.Edge(executable_path=DRIVER_PATH)
+
 # list of pages to check
 gcStorePages = [
     "https://www.bestbuy.com/site/msi-geforce-rtx-3080-ventus-3x-10g-oc-bv-gddr6x-pci-express-4-0-graphic-card-black-silver/6430175.p?skuId=6430175",
@@ -33,6 +31,8 @@ gcStorePages = [
     "https://www.newegg.com/asus-geforce-rtx-3080-rog-strix-rtx3080-o10g-gaming/p/N82E16814126457",
     "https://store.asus.com/us/item/202009AM290000002/ASUS-ROG-STRIX-NVIDIA-GeForce-RTX-3080-OC-Edition-Gaming-Graphics-Card-%28PCIe-4.0%2C-10GB-GDDR6X%2C-HDMI-2.1%2C-DisplayPort-1.4a%2C-Axial-tech-Fan-Design%2C-2.9-slot%2C-Super-Alloy-Power-II%2C-GPU-Tweak-II%29"
 ]
+
+# Potential button id's
 aTCButtonClassNames = [
     'add-to-cart-button',
     'call-to-action-main-product',
@@ -41,6 +41,7 @@ aTCButtonClassNames = [
     'AddToChat',
     'btn-addcart'   
 ]
+# Button Markup used
 buttonType = {
     "bhphotovideo":"button",
     "bestbuy":"button",
@@ -49,6 +50,7 @@ buttonType = {
     "evga": "span",
     "store.asus":"button"
 }
+# Supported Sites
 websiteNames = [
     "bhphotovideo",
     "bestbuy",
